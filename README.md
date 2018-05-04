@@ -15,20 +15,28 @@ In case of a non redundant request, it just gets the first primary vlan availabl
 
 In case of redundant request, we look for a secondary vlan until one is available with also the respective primary one. Removes all the secondaries not useful in the search, the chosen one and the primary associated.
 
-When ran without parameters, it generates an **output.csv** ordered ascending by request_id and primary_port.
-When ran with **test_vlans.csv** and **test_requests.csv** parameters, it will output a **test_output.csv** when provided  as input.
+When ran without parameters, it generates an **output.csv** (inside data directory) ordered ascending by request_id and primary_port.
+When ran with **test_vlans.csv test_requests.csv** parameters, it will output a **test_output.csv** (inside data directory) when provided  as input.
 
 
 ## Usage
 
-Install with::
+First, install it (better in an virtualenv):
 
     python3 setup.py install
 
-Running::
+To check the command line options:
 
-    network_challenge [-v]
+	network -h
 
-Testing::
+Testing:
 
     python3 setup.py test
+
+Finally, to run it:
+
+	network
+
+To run the test files, do:
+
+    network test_vlans.csv test_requests.csv
